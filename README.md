@@ -1,0 +1,1 @@
+# ElosztottAlk_15
