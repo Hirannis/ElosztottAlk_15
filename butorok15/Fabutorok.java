@@ -1,13 +1,47 @@
 package butorok15;
+import static butorok15.main.ff;
+import java.io.Serializable;
 
-import java.util.ArrayList;
-import java.util.Map;
-import java.util.function.Function;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
-        
-public abstract class Fabutorok {
-    static int ertek = 50000;
-    static double suly;
-    
+public class Fabutorok implements Serializable, FaInterface {
+
+    private String neve;
+    private double ertek, suly;
+
+    public Fabutorok() {
+        this.ertek = 50000;
+    }
+    public Fabutorok(double ertek) {
+        this.ertek = ertek;
+    }
+    public Fabutorok(String neve, double suly) {
+        this.neve = neve;
+        this.suly = suly;
+    }
+    public Fabutorok(String neve, double ertek, double suly) {
+        this.neve = neve;
+        this.ertek = ertek;
+        this.suly = suly;
+    }
+
+    public void felujit() {
+        this.ertek = (ertek * 0.85);
+        aruhaz.mentesFab(ff);
+    }
+
+    public String Getneve() {
+        return neve;
+    }
+
+    public double Getertek() {
+        return ertek;
+    }
+
+    public double Getsuly() {
+        return suly;
+    }
+
+    @Override
+    public String toString() {
+        return "nev=" + neve + ", ar=" + ertek + ", suly=" + suly;
+    }
 }
