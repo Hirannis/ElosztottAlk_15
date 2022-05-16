@@ -9,14 +9,15 @@ import java.util.ArrayList;
 
 public interface aruhazInterface {
    //public void ujKarpitozottbutor(Karpitozottbutorok kbutor);
-   public String Getknev();
-   public String Getfnev();
-   public ArrayList<Karpitozottbutorok> getKarpitozottbutorok_ertekszerint();
-   public ArrayList<Fabutorok> getFabutorok_ertekszerint();
-   //public static void mentesKarpb();
+     //public ArrayList<Karpitozottbutorok> getKarpitozottbutorok_ertekszerint();
+     //public ArrayList<Fabutorok> getFabutorok_ertekszerint();
+     public String getknev();
+     public String getfnev();
+     //public void mentesKarpb();
    //public static void mentesFab();
    //public void Karpbfajlbol_be();
   // public void Fabfajlbol_be();
    
    
 }
+
