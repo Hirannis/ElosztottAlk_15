@@ -11,32 +11,39 @@ Az áruház tudja exportálni a raktárkészletét egy bináris állományba.
 Amikor „létrejön” egy áruház, akkor aktualizálja magát, ha van létező bináris állomány.*/
 public class main {
 
-    static String kn = "Karpitozott", fn = "Fa";
-    static String kf = "Karpitozott.bin", ff = "Fa.bin";
+    static String kfajlneve = "Karpitozott.bin", ffajlneve = "Fa.bin";
 
     public static void main(String[] args) {
 
-        aruhaz butorok = new aruhaz(kn, fn, kf, ff);
-//Új 
-        aruhaz.ujKarpitozottbutor(new Karpitozottbutorok("kanape", 80000, "Barsony"), kf);
-        aruhaz.ujKarpitozottbutor(new Karpitozottbutorok("fotel", 35000, "Barsony"), kf);
-        aruhaz.ujFabutor(new Fabutorok("etkezoasztal", 100000, 36), ff);
-        aruhaz.ujFabutor(new Fabutorok("szekreny", 50), ff);
+        aruhaz Aruhaz = new aruhaz( kfajlneve, ffajlneve);
+//Új elem hozzáadása
+        aruhaz.ujKarpitozottbutor(new Karpitozottbutorok("kanape", 80000, "Barsony"));
+        aruhaz.ujKarpitozottbutor(new Karpitozottbutorok("kanape", 90000, "Vaszon"));
+        aruhaz.ujKarpitozottbutor(new Karpitozottbutorok("szék", 70000, "Barsony"));
+        aruhaz.ujKarpitozottbutor(new Karpitozottbutorok("fotel", 35000, "Barsony"));
+        aruhaz.ujFabutor(new Fabutorok("etkezoasztal", 100000, 36));
+        aruhaz.ujFabutor(new Fabutorok("szekreny", 50));
+        aruhaz.mentesKarpb(kfajlneve);
+        aruhaz.mentesFab(ffajlneve);
         
 //Listázás
-        ArrayList<Karpitozottbutorok> kbutorok = butorok.getKarpitozottbutorok_ertekszerint();
-        ArrayList<Fabutorok> fbutorok = butorok.getFabutorok_ertekszerint();
-        System.out.println("Kárpitozott bútorok:");
+      //  readFromFile(kfajlneve);
+     //   readFromFile(ffajlneve);
+        ArrayList<Karpitozottbutorok> kbutorok = aruhaz.getKarpitozottbutorok_ertekszerint();
+        ArrayList<Fabutorok> fbutorok = aruhaz.getFabutorok_ertekszerint();
+        System.out.println("        -Kárpitozott bútorok-\n");
         for (int i = 0; i < kbutorok.size(); i++) {
             System.out.println(kbutorok.get(i).toString());
         }
-        System.out.println("Fa bútorok:");
+        System.out.println("        -Fa bútorok-\n");
         for (int i = 0; i < fbutorok.size(); i++) {
             System.out.println(fbutorok.get(i).toString());
         }
-        //fbutorok.get(1).felujit();
-        // kbutorok.get(0).felujit();
+//Felújítás +utána érték csökkenés
+        fbutorok.get(1).felujit();
+        fbutorok.get(0).felujit();
         kbutorok.get(0).felujitanyagis("Vaszon");
+        System.out.println(fbutorok.get(1)+"\n"+fbutorok.get(0)+"\n"+kbutorok.get(0));
     }
-
 }
+
