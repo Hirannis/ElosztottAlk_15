@@ -1,5 +1,5 @@
 package butorok15;
-import static butorok15.main.kf;
+import static butorok15.main.kfajlneve;
 import java.io.Serializable;
 
 
@@ -10,11 +10,9 @@ public class Karpitozottbutorok implements Serializable, KarpitozottInterface {
     private String anyag;
     private int felujitdb=0;
 
-    public Karpitozottbutorok() {
-        this.ertek = 50000;
-    }
     public Karpitozottbutorok(String neve, String anyag) {
         super();
+        this.ertek = 50000;
         this.neve = neve;
         this.anyag = anyag;
     }
@@ -27,14 +25,14 @@ public class Karpitozottbutorok implements Serializable, KarpitozottInterface {
 
     public void felujit() {
         this.ertek = (ertek * 0.85);
-        aruhaz.mentesKarpb(kf);
+        aruhaz.mentesKarpb(kfajlneve);
     }
 
     public void felujitanyagis( String anyag) {
-        if(this.anyag!=anyag){
+        if(anyag!=this.anyag){
         this.ertek = (ertek * 0.85);
         this.anyag = anyag;
-        aruhaz.mentesKarpb(kf);
+        aruhaz.mentesKarpb(kfajlneve);
         }
     }
 
@@ -52,6 +50,7 @@ public class Karpitozottbutorok implements Serializable, KarpitozottInterface {
 
     @Override
     public String toString() {
-        return "nev=" + neve + ", ar=" + ertek + ", anyaga=" + anyag ;
+       // return "nev=" + neve + ", ar=" + ertek + ", anyaga=" + anyag+"\n" ;
+       return neve+"    "+ertek+"   "+anyag+"\n";
     }
 }
