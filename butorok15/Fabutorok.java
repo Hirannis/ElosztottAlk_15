@@ -1,21 +1,16 @@
 package butorok15;
-import static butorok15.main.ff;
+import static butorok15.main.ffajlneve;
 import java.io.Serializable;
 
 public class Fabutorok implements Serializable, FaInterface {
 
     private String neve;
-    private double ertek, suly;
+    private double ertek=50000, suly;
 
-    public Fabutorok() {
-        this.ertek = 50000;
-    }
-    public Fabutorok(double ertek) {
-        this.ertek = ertek;
-    }
     public Fabutorok(String neve, double suly) {
         this.neve = neve;
         this.suly = suly;
+        this.ertek = ertek;
     }
     public Fabutorok(String neve, double ertek, double suly) {
         this.neve = neve;
@@ -25,7 +20,7 @@ public class Fabutorok implements Serializable, FaInterface {
 
     public void felujit() {
         this.ertek = (ertek * 0.85);
-        aruhaz.mentesFab(ff);
+        aruhaz.mentesFab(ffajlneve);
     }
 
     public String Getneve() {
@@ -42,6 +37,7 @@ public class Fabutorok implements Serializable, FaInterface {
 
     @Override
     public String toString() {
-        return "nev=" + neve + ", ar=" + ertek + ", suly=" + suly;
+        //return "nev=" + neve + ", ar=" + ertek + ", suly=" + suly;
+        return neve+"    "+ertek+"   "+suly+"\n";
     }
 }
